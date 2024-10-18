@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Liste des Tickets</h2>
+    <button type="button" class="btn btn-primary" (click)="ajouterTicket()">Ajouter un nouveau ticket</button>
+
+
+    <div class="search-container">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="filterTickets()"
+          placeholder="Search tickets..."
+          class="form-control"
+        />
+      </div>
+      
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Date de création</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ ticket.ticketId }}</td>
+          <td>{{ ticket.description }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.dateCreated}}</td>
+          <td>
+            <button class="btn btn-primary" routerLink='/edit-ticket'>Modifier</button>
+            <button class="btn btn-danger" (click)="deleteTicket(ticket.ticketId)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

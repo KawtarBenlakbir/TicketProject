@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Edit Ticket</h2>
+    
+    <form (ngSubmit)="saveTicket()">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          class="form-control"
+          [(ngModel)]="ticket.description"
+          name="description"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select
+          id="status"
+          class="form-control"
+          [(ngModel)]="ticket.status"
+          name="status"
+          required
+        >
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Save Changes</button>
+      <a class="btn btn-secondary" [routerLink]="['/tickets']">Cancel</a>
+    </form>
+  </div>
+  
